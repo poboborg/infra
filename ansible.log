@@ -1,0 +1,9 @@
+2026-03-23 17:52:57,637 p=30191 u=boborg n=ansible WARNING| [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2026-03-23 17:52:57,729 p=30191 u=boborg n=ansible INFO| PLAY [clone git repository to roles directory] *************************************************************************************************************
+2026-03-23 17:52:57,733 p=30191 u=boborg n=ansible INFO| TASK [ensure roles directory exists] ***********************************************************************************************************************
+2026-03-23 17:52:57,960 p=30191 u=boborg n=ansible INFO| changed: [localhost]
+2026-03-23 17:52:57,961 p=30191 u=boborg n=ansible INFO| TASK [clone git repository into the roles directory] *******************************************************************************************************
+2026-03-23 17:53:03,191 p=30191 u=boborg n=ansible INFO| changed: [localhost]
+2026-03-23 17:53:03,192 p=30191 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 17:53:03,192 p=30191 u=boborg n=ansible INFO| localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
