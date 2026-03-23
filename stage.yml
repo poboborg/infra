@@ -1,5 +1,9 @@
 ---
 - hosts: web
+  become: yes
   roles:
     - { role: 'common' }
     - { role: 'adduser' }
+    - { role: 'ssh_keys' }
+    - { role: 'sudoers' }
+    - { role: 'disable_root_ssh' }
