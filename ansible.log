@@ -400,3 +400,4 @@ Should be:
 2026-03-23 23:05:11,501 p=85286 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
 2026-03-23 23:05:11,502 p=85286 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
 2026-03-23 23:09:52,262 p=86144 u=boborg n=ansible INFO| - Role swaptrasher was created successfully
+2026-03-23 23:31:02,861 p=89816 u=boborg n=ansible INFO| - Role roles/adduser was created successfully
