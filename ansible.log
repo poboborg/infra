@@ -44,3 +44,313 @@
 2026-03-23 22:04:41,744 p=73972 u=boborg n=ansible INFO| changed: [lf-prod]
 2026-03-23 22:04:41,747 p=73972 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
 2026-03-23 22:04:41,747 p=73972 u=boborg n=ansible INFO| lf-prod                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2026-03-23 22:31:09,985 p=78995 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:31:09,991 p=78995 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:31:11,241 p=78995 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:31:11,244 p=78995 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:31:11,537 p=78995 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:31:11,542 p=78995 u=boborg n=ansible INFO| TASK [hostname : set timezone to Europe/Moscow] ************************************************************************************************************
+2026-03-23 22:31:11,780 p=78995 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:31:11,783 p=78995 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:31:11,794 p=78995 u=boborg n=ansible ERROR| [ERROR]: Task failed: Finalization of task args for 'ansible.builtin.shell' failed: Error while resolving value for '_raw_params': 'swap_size' is undefined
+
+Task failed.
+Origin: /home/boborg/Linuxfactory/infra/roles/hostname/tasks/main.yml:7:5
+
+5
+6 - block:
+7   - name: create a swap file
+      ^ column 5
+
+<<< caused by >>>
+
+Finalization of task args for 'ansible.builtin.shell' failed.
+Origin: /home/boborg/Linuxfactory/infra/roles/hostname/tasks/main.yml:8:5
+
+6 - block:
+7   - name: create a swap file
+8     shell: fallocate -l {{ swap_size }} /swapfile
+      ^ column 5
+
+<<< caused by >>>
+
+Error while resolving value for '_raw_params': 'swap_size' is undefined
+Origin: /home/boborg/Linuxfactory/infra/roles/hostname/tasks/main.yml:8:12
+
+6 - block:
+7   - name: create a swap file
+8     shell: fallocate -l {{ swap_size }} /swapfile
+             ^ column 12
+
+
+2026-03-23 22:31:11,794 p=78995 u=boborg n=ansible INFO| fatal: [lf-prod]: FAILED! => {"changed": false, "msg": "Task failed: Finalization of task args for 'ansible.builtin.shell' failed: Error while resolving value for '_raw_params': 'swap_size' is undefined"}
+2026-03-23 22:31:11,794 p=78995 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:31:11,795 p=78995 u=boborg n=ansible INFO| lf-prod                    : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-03-23 22:36:38,258 p=79957 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:36:38,264 p=79957 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:36:39,489 p=79957 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:36:39,492 p=79957 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:36:39,793 p=79957 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:36:39,798 p=79957 u=boborg n=ansible INFO| TASK [hostname : set timezone to Europe/Moscow] ************************************************************************************************************
+2026-03-23 22:36:40,004 p=79957 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:36:40,007 p=79957 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:36:40,256 p=79957 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:36:40,260 p=79957 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:36:40,516 p=79957 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:36:40,519 p=79957 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:36:40,528 p=79957 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:36:40,530 p=79957 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:36:40,539 p=79957 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:36:40,541 p=79957 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:36:40,819 p=79957 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:36:40,819 p=79957 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:36:40,819 p=79957 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:36:40,819 p=79957 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:36:40,819 p=79957 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:36:40,822 p=79957 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:36:40,823 p=79957 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=5    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:36:59,211 p=80038 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:36:59,218 p=80038 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:36:59,948 p=80038 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:36:59,950 p=80038 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:37:00,223 p=80038 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:37:00,228 p=80038 u=boborg n=ansible INFO| TASK [hostname : set timezone to Europe/Moscow] ************************************************************************************************************
+2026-03-23 22:37:00,432 p=80038 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:37:00,435 p=80038 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:37:00,678 p=80038 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:00,682 p=80038 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:37:00,932 p=80038 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:00,934 p=80038 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:37:00,943 p=80038 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:37:00,945 p=80038 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:37:00,953 p=80038 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:37:00,956 p=80038 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:37:01,234 p=80038 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:37:01,234 p=80038 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:37:01,234 p=80038 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:37:01,234 p=80038 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:37:01,235 p=80038 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:01,238 p=80038 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:37:01,238 p=80038 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:37:17,436 p=80110 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:37:17,442 p=80110 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:37:18,161 p=80110 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:18,164 p=80110 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:37:18,437 p=80110 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:37:18,442 p=80110 u=boborg n=ansible INFO| TASK [hostname : set timezone to Europe/Moscow] ************************************************************************************************************
+2026-03-23 22:37:18,647 p=80110 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:37:18,650 p=80110 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:37:18,889 p=80110 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:18,892 p=80110 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:37:19,140 p=80110 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:19,143 p=80110 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:37:19,152 p=80110 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:37:19,154 p=80110 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:37:19,162 p=80110 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:37:19,165 p=80110 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:37:19,436 p=80110 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:37:19,436 p=80110 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:37:19,436 p=80110 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:37:19,437 p=80110 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:37:19,437 p=80110 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:37:19,439 p=80110 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:37:19,439 p=80110 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:39:26,450 p=80525 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:39:26,458 p=80525 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:39:27,688 p=80525 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:39:27,690 p=80525 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:39:28,005 p=80525 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:39:28,010 p=80525 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:39:28,249 p=80525 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:39:28,252 p=80525 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:39:28,500 p=80525 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:39:28,504 p=80525 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:39:28,513 p=80525 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:39:28,516 p=80525 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:39:28,525 p=80525 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:39:28,527 p=80525 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:39:28,810 p=80525 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:39:28,810 p=80525 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:39:28,811 p=80525 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:39:28,811 p=80525 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:39:28,811 p=80525 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:39:28,814 p=80525 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:39:28,814 p=80525 u=boborg n=ansible INFO| lf-prod                    : ok=5    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:40:49,286 p=80779 u=boborg n=ansible INFO| lf-prod | CHANGED | rc=0 >>
+                Time zone: Europe/Paris (CET, +0100)
+
+2026-03-23 22:41:46,374 p=80964 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:41:46,381 p=80964 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:41:47,117 p=80964 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:47,119 p=80964 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:41:47,423 p=80964 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-23 22:41:47,428 p=80964 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:41:47,671 p=80964 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:47,674 p=80964 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:41:47,924 p=80964 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:47,927 p=80964 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:41:47,936 p=80964 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:41:47,938 p=80964 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:41:47,947 p=80964 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:41:47,949 p=80964 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:41:48,226 p=80964 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:41:48,226 p=80964 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:41:48,226 p=80964 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:41:48,226 p=80964 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:41:48,227 p=80964 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:48,229 p=80964 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:41:48,230 p=80964 u=boborg n=ansible INFO| lf-prod                    : ok=5    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:41:50,015 p=80992 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:41:50,022 p=80992 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:41:50,762 p=80992 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:50,764 p=80992 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:41:51,031 p=80992 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:51,036 p=80992 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:41:51,277 p=80992 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:51,280 p=80992 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:41:51,532 p=80992 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:51,536 p=80992 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:41:51,545 p=80992 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:41:51,547 p=80992 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:41:51,556 p=80992 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:41:51,558 p=80992 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:41:51,832 p=80992 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:41:51,832 p=80992 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:41:51,832 p=80992 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:41:51,833 p=80992 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:41:51,833 p=80992 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:41:51,836 p=80992 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:41:51,836 p=80992 u=boborg n=ansible INFO| lf-prod                    : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:44:08,352 p=81436 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:44:08,358 p=81436 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:44:09,581 p=81436 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:44:09,583 p=81436 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:44:09,884 p=81436 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:44:09,889 p=81436 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:44:10,134 p=81436 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:44:10,136 p=81436 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:44:10,384 p=81436 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:44:10,388 p=81436 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:44:10,396 p=81436 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:44:10,399 p=81436 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:44:10,407 p=81436 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:44:10,410 p=81436 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:44:10,687 p=81436 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:44:10,687 p=81436 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:44:10,687 p=81436 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:44:10,688 p=81436 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:44:10,688 p=81436 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:44:10,690 p=81436 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:44:10,691 p=81436 u=boborg n=ansible INFO| lf-prod                    : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:44:20,067 p=81485 u=boborg n=ansible WARNING| [WARNING]: Could not match supplied host pattern, ignoring: web
+
+2026-03-23 22:44:20,067 p=81485 u=boborg n=ansible INFO| PLAY [web] *************************************************************************************************************************************************
+2026-03-23 22:44:20,067 p=81485 u=boborg n=ansible INFO| skipping: no hosts matched
+2026-03-23 22:44:20,068 p=81485 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:44:29,962 p=81512 u=boborg n=ansible INFO| PLAY [web] *************************************************************************************************************************************************
+2026-03-23 22:44:29,968 p=81512 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:44:31,210 p=81512 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:44:31,213 p=81512 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:44:31,521 p=81512 u=boborg n=ansible INFO| changed: [lf-stage]
+2026-03-23 22:44:31,527 p=81512 u=boborg n=ansible INFO| TASK [hostname : create a swap file] ***********************************************************************************************************************
+2026-03-23 22:44:31,772 p=81512 u=boborg n=ansible INFO| changed: [lf-stage]
+2026-03-23 22:44:31,775 p=81512 u=boborg n=ansible INFO| TASK [hostname : set the correct permissions] **************************************************************************************************************
+2026-03-23 22:44:32,025 p=81512 u=boborg n=ansible INFO| changed: [lf-stage]
+2026-03-23 22:44:32,029 p=81512 u=boborg n=ansible INFO| TASK [hostname : make the file a swap file] ****************************************************************************************************************
+2026-03-23 22:44:32,037 p=81512 u=boborg n=ansible INFO| skipping: [lf-stage]
+2026-03-23 22:44:32,039 p=81512 u=boborg n=ansible INFO| TASK [hostname : enable the swap file] *********************************************************************************************************************
+2026-03-23 22:44:32,048 p=81512 u=boborg n=ansible INFO| skipping: [lf-stage]
+2026-03-23 22:44:32,051 p=81512 u=boborg n=ansible INFO| TASK [hostname : add swap file to fstab] *******************************************************************************************************************
+2026-03-23 22:44:32,331 p=81512 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:44:32,331 p=81512 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:44:32,331 p=81512 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:44:32,332 p=81512 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:44:32,332 p=81512 u=boborg n=ansible INFO| changed: [lf-stage]
+2026-03-23 22:44:32,335 p=81512 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:44:32,335 p=81512 u=boborg n=ansible INFO| lf-stage                   : ok=5    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:55:28,762 p=83504 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 22:55:28,768 p=83504 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:55:29,993 p=83504 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:55:29,995 p=83504 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:55:30,296 p=83504 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:55:30,299 p=83504 u=boborg n=ansible INFO| TASK [common : set hostname on server] *********************************************************************************************************************
+2026-03-23 22:55:30,760 p=83504 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:55:30,763 p=83504 u=boborg n=ansible INFO| TASK [common : create a swap file] *************************************************************************************************************************
+2026-03-23 22:55:31,006 p=83504 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:55:31,009 p=83504 u=boborg n=ansible INFO| TASK [common : set the correct permissions] ****************************************************************************************************************
+2026-03-23 22:55:31,261 p=83504 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:55:31,264 p=83504 u=boborg n=ansible INFO| TASK [common : make the file a swap file] ******************************************************************************************************************
+2026-03-23 22:55:31,272 p=83504 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:55:31,275 p=83504 u=boborg n=ansible INFO| TASK [common : enable the swap file] ***********************************************************************************************************************
+2026-03-23 22:55:31,283 p=83504 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 22:55:31,286 p=83504 u=boborg n=ansible INFO| TASK [common : add swap file to fstab] *********************************************************************************************************************
+2026-03-23 22:55:31,557 p=83504 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:55:31,557 p=83504 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:55:31,558 p=83504 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:55:31,558 p=83504 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:55:31,558 p=83504 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 22:55:31,561 p=83504 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:55:31,561 p=83504 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 22:55:38,338 p=83549 u=boborg n=ansible INFO| PLAY [web] *************************************************************************************************************************************************
+2026-03-23 22:55:38,345 p=83549 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 22:55:39,580 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:55:39,582 p=83549 u=boborg n=ansible INFO| TASK [common : set timezone to Europe/Moscow] **************************************************************************************************************
+2026-03-23 22:55:39,881 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:55:39,884 p=83549 u=boborg n=ansible INFO| TASK [common : set hostname on server] *********************************************************************************************************************
+2026-03-23 22:55:40,344 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:55:40,347 p=83549 u=boborg n=ansible INFO| TASK [common : create a swap file] *************************************************************************************************************************
+2026-03-23 22:55:40,588 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:55:40,592 p=83549 u=boborg n=ansible INFO| TASK [common : set the correct permissions] ****************************************************************************************************************
+2026-03-23 22:55:40,843 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:55:40,846 p=83549 u=boborg n=ansible INFO| TASK [common : make the file a swap file] ******************************************************************************************************************
+2026-03-23 22:55:40,855 p=83549 u=boborg n=ansible INFO| skipping: [lf-stage]
+2026-03-23 22:55:40,857 p=83549 u=boborg n=ansible INFO| TASK [common : enable the swap file] ***********************************************************************************************************************
+2026-03-23 22:55:40,866 p=83549 u=boborg n=ansible INFO| skipping: [lf-stage]
+2026-03-23 22:55:40,869 p=83549 u=boborg n=ansible INFO| TASK [common : add swap file to fstab] *********************************************************************************************************************
+2026-03-23 22:55:41,149 p=83549 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 22:55:41,149 p=83549 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:55:41,149 p=83549 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 22:55:41,149 p=83549 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 22:55:41,149 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-23 22:55:41,152 p=83549 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 22:55:41,152 p=83549 u=boborg n=ansible INFO| lf-stage                   : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
