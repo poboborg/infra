@@ -1,0 +1,27 @@
+---
+- name: check if swap file exists
+  stat:
+    path: "{{ swap_path }}"
+  register: swap_file
+
+- block:
+  - name: disable swap
+    shell: swapoff {{ swap_path }}
+    when: ansible_facts.swapfree_mb > 0
+
+  - name: remove swap file
+    file:
+      path: "{{ swap_path }}"
+      state: absent
+
+  - name: remove swap from fstab
+    mount:
+      name: none
+      src: "{{ swap_path }}"
+      fstype: swap
+      opts: sw
+      passno: 0
+      dump: 0
+      state: absent
+
+  when: swap_file.stat.exists

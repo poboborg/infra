@@ -354,3 +354,49 @@ Origin: /home/boborg/Linuxfactory/infra/roles/hostname/tasks/main.yml:8:12
 2026-03-23 22:55:41,149 p=83549 u=boborg n=ansible INFO| ok: [lf-stage]
 2026-03-23 22:55:41,152 p=83549 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
 2026-03-23 22:55:41,152 p=83549 u=boborg n=ansible INFO| lf-stage                   : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 23:03:50,326 p=85045 u=boborg n=ansible ERROR| [ERROR]: YAML parsing failed: This may be an issue with missing quotes around a template block.
+Origin: /home/boborg/Linuxfactory/infra/roles/common/tasks/main.yml:34:12
+
+32     mount:
+33       name: none
+34       src: {{ swap_path }}
+              ^ column 12
+
+
+For example:
+
+    raw: {{ some_var }}
+
+Should be:
+
+    raw: "{{ some_var }}"
+
+
+2026-03-23 23:05:08,692 p=85286 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 23:05:08,699 p=85286 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 23:05:09,939 p=85286 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:05:09,942 p=85286 u=boborg n=ansible INFO| TASK [common : set timezone] *******************************************************************************************************************************
+2026-03-23 23:05:10,235 p=85286 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:05:10,238 p=85286 u=boborg n=ansible INFO| TASK [common : set hostname on server] *********************************************************************************************************************
+2026-03-23 23:05:10,694 p=85286 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:05:10,697 p=85286 u=boborg n=ansible INFO| TASK [common : create a swap file] *************************************************************************************************************************
+2026-03-23 23:05:10,938 p=85286 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:05:10,942 p=85286 u=boborg n=ansible INFO| TASK [common : set the correct permissions] ****************************************************************************************************************
+2026-03-23 23:05:11,198 p=85286 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:05:11,201 p=85286 u=boborg n=ansible INFO| TASK [common : make the file a swap file] ******************************************************************************************************************
+2026-03-23 23:05:11,209 p=85286 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 23:05:11,211 p=85286 u=boborg n=ansible INFO| TASK [common : enable the swap file] ***********************************************************************************************************************
+2026-03-23 23:05:11,220 p=85286 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 23:05:11,223 p=85286 u=boborg n=ansible INFO| TASK [common : add swap file to fstab] *********************************************************************************************************************
+2026-03-23 23:05:11,498 p=85286 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 23:05:11,498 p=85286 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 23:05:11,498 p=85286 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 23:05:11,498 p=85286 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 23:05:11,498 p=85286 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:05:11,501 p=85286 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 23:05:11,502 p=85286 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-23 23:09:52,262 p=86144 u=boborg n=ansible INFO| - Role swaptrasher was created successfully
