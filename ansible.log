@@ -401,3 +401,34 @@ Should be:
 2026-03-23 23:05:11,502 p=85286 u=boborg n=ansible INFO| lf-prod                    : ok=6    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
 2026-03-23 23:09:52,262 p=86144 u=boborg n=ansible INFO| - Role swaptrasher was created successfully
 2026-03-23 23:31:02,861 p=89816 u=boborg n=ansible INFO| - Role roles/adduser was created successfully
+2026-03-23 23:45:42,202 p=92531 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-23 23:45:42,208 p=92531 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-23 23:45:43,435 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:43,437 p=92531 u=boborg n=ansible INFO| TASK [common : set timezone] *******************************************************************************************************************************
+2026-03-23 23:45:43,732 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:43,735 p=92531 u=boborg n=ansible INFO| TASK [common : set hostname on server] *********************************************************************************************************************
+2026-03-23 23:45:44,195 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:44,197 p=92531 u=boborg n=ansible INFO| TASK [common : create a swap file] *************************************************************************************************************************
+2026-03-23 23:45:44,436 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:44,439 p=92531 u=boborg n=ansible INFO| TASK [common : set the correct permissions] ****************************************************************************************************************
+2026-03-23 23:45:44,689 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:44,692 p=92531 u=boborg n=ansible INFO| TASK [common : make the file a swap file] ******************************************************************************************************************
+2026-03-23 23:45:44,700 p=92531 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 23:45:44,703 p=92531 u=boborg n=ansible INFO| TASK [common : enable the swap file] ***********************************************************************************************************************
+2026-03-23 23:45:44,711 p=92531 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-23 23:45:44,713 p=92531 u=boborg n=ansible INFO| TASK [common : add swap file to fstab] *********************************************************************************************************************
+2026-03-23 23:45:44,986 p=92531 u=boborg n=ansible WARNING| [WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+
+2026-03-23 23:45:44,987 p=92531 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_bytes' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 23:45:44,987 p=92531 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Importing 'to_native' from 'ansible.module_utils._text' is deprecated. This feature will be removed from ansible-core version 2.24. Use ansible.module_utils.common.text.converters instead.
+
+2026-03-23 23:45:44,987 p=92531 u=boborg n=ansible INFO| [DEPRECATION WARNING]: Passing `warnings` to `exit_json` or `fail_json` is deprecated. This feature will be removed from ansible-core version 2.23. Use `AnsibleModule.warn` instead.
+
+2026-03-23 23:45:44,987 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:44,991 p=92531 u=boborg n=ansible INFO| TASK [adduser : create user] *******************************************************************************************************************************
+2026-03-23 23:45:45,301 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:45,304 p=92531 u=boborg n=ansible INFO| TASK [adduser : add ssh key] *******************************************************************************************************************************
+2026-03-23 23:45:45,635 p=92531 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-23 23:45:45,638 p=92531 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-23 23:45:45,638 p=92531 u=boborg n=ansible INFO| lf-prod                    : ok=8    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
