@@ -1161,3 +1161,73 @@ PasswordAuthentication yes
 2026-03-24 01:14:17,325 p=109084 u=boborg n=ansible INFO| ok: [lf-prod]
 2026-03-24 01:14:17,329 p=109084 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
 2026-03-24 01:14:17,329 p=109084 u=boborg n=ansible INFO| lf-prod                    : ok=14   changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-24 01:38:39,540 p=114088 u=boborg n=ansible INFO| PLAY [db] **************************************************************************************************************************************************
+2026-03-24 01:38:39,553 p=114088 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-24 01:38:40,734 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:40,737 p=114088 u=boborg n=ansible INFO| TASK [common : set timezone] *******************************************************************************************************************************
+2026-03-24 01:38:41,049 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:41,052 p=114088 u=boborg n=ansible INFO| TASK [common : set hostname on server] *********************************************************************************************************************
+2026-03-24 01:38:41,526 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:41,529 p=114088 u=boborg n=ansible INFO| TASK [common : update apt cache] ***************************************************************************************************************************
+2026-03-24 01:38:42,989 p=114088 u=boborg n=ansible INFO| changed: [lf-prod]
+2026-03-24 01:38:42,993 p=114088 u=boborg n=ansible INFO| TASK [common : create a swap file] *************************************************************************************************************************
+2026-03-24 01:38:43,243 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:43,246 p=114088 u=boborg n=ansible INFO| TASK [common : set the correct permissions] ****************************************************************************************************************
+2026-03-24 01:38:43,508 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:43,511 p=114088 u=boborg n=ansible INFO| TASK [common : make the file a swap file] ******************************************************************************************************************
+2026-03-24 01:38:43,520 p=114088 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-24 01:38:43,522 p=114088 u=boborg n=ansible INFO| TASK [common : enable the swap file] ***********************************************************************************************************************
+2026-03-24 01:38:43,531 p=114088 u=boborg n=ansible INFO| skipping: [lf-prod]
+2026-03-24 01:38:43,534 p=114088 u=boborg n=ansible INFO| TASK [common : add swap file to fstab] *********************************************************************************************************************
+2026-03-24 01:38:43,824 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:43,829 p=114088 u=boborg n=ansible INFO| TASK [adduser : create users] ******************************************************************************************************************************
+2026-03-24 01:38:44,138 p=114088 u=boborg n=ansible INFO| ok: [lf-prod] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:38:44,142 p=114088 u=boborg n=ansible INFO| TASK [adduser : add ssh keys] ******************************************************************************************************************************
+2026-03-24 01:38:46,133 p=114088 u=boborg n=ansible INFO| ok: [lf-prod] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:38:46,138 p=114088 u=boborg n=ansible INFO| TASK [ssh_keys : ensure .ssh directory exists] *************************************************************************************************************
+2026-03-24 01:38:46,332 p=114088 u=boborg n=ansible INFO| ok: [lf-prod] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:38:46,336 p=114088 u=boborg n=ansible INFO| TASK [ssh_keys : add ssh key] ******************************************************************************************************************************
+2026-03-24 01:38:46,598 p=114088 u=boborg n=ansible INFO| ok: [lf-prod] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:38:46,604 p=114088 u=boborg n=ansible INFO| TASK [sudoers : add users to sudoers without password] *****************************************************************************************************
+2026-03-24 01:38:46,857 p=114088 u=boborg n=ansible INFO| ok: [lf-prod] => (item=user)
+2026-03-24 01:38:46,863 p=114088 u=boborg n=ansible INFO| TASK [disable_root_ssh : disable root ssh login] ***********************************************************************************************************
+2026-03-24 01:38:47,048 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:47,051 p=114088 u=boborg n=ansible INFO| TASK [disable_root_ssh : disable password authentication in cloud-init config] *****************************************************************************
+2026-03-24 01:38:47,238 p=114088 u=boborg n=ansible INFO| ok: [lf-prod]
+2026-03-24 01:38:47,241 p=114088 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-24 01:38:47,241 p=114088 u=boborg n=ansible INFO| lf-prod                    : ok=14   changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2026-03-24 01:39:05,753 p=114203 u=boborg n=ansible INFO| PLAY [web] *************************************************************************************************************************************************
+2026-03-24 01:39:05,762 p=114203 u=boborg n=ansible INFO| TASK [Gathering Facts] *************************************************************************************************************************************
+2026-03-24 01:39:06,895 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:06,898 p=114203 u=boborg n=ansible INFO| TASK [common : set timezone] *******************************************************************************************************************************
+2026-03-24 01:39:07,202 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:07,205 p=114203 u=boborg n=ansible INFO| TASK [common : set hostname on server] *********************************************************************************************************************
+2026-03-24 01:39:07,680 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:07,683 p=114203 u=boborg n=ansible INFO| TASK [common : update apt cache] ***************************************************************************************************************************
+2026-03-24 01:39:09,144 p=114203 u=boborg n=ansible INFO| changed: [lf-stage]
+2026-03-24 01:39:09,147 p=114203 u=boborg n=ansible INFO| TASK [common : create a swap file] *************************************************************************************************************************
+2026-03-24 01:39:09,394 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:09,397 p=114203 u=boborg n=ansible INFO| TASK [common : set the correct permissions] ****************************************************************************************************************
+2026-03-24 01:39:09,660 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:09,663 p=114203 u=boborg n=ansible INFO| TASK [common : make the file a swap file] ******************************************************************************************************************
+2026-03-24 01:39:09,671 p=114203 u=boborg n=ansible INFO| skipping: [lf-stage]
+2026-03-24 01:39:09,674 p=114203 u=boborg n=ansible INFO| TASK [common : enable the swap file] ***********************************************************************************************************************
+2026-03-24 01:39:09,682 p=114203 u=boborg n=ansible INFO| skipping: [lf-stage]
+2026-03-24 01:39:09,685 p=114203 u=boborg n=ansible INFO| TASK [common : add swap file to fstab] *********************************************************************************************************************
+2026-03-24 01:39:09,968 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:09,974 p=114203 u=boborg n=ansible INFO| TASK [adduser : create users] ******************************************************************************************************************************
+2026-03-24 01:39:10,284 p=114203 u=boborg n=ansible INFO| ok: [lf-stage] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:39:10,288 p=114203 u=boborg n=ansible INFO| TASK [adduser : add ssh keys] ******************************************************************************************************************************
+2026-03-24 01:39:10,641 p=114203 u=boborg n=ansible INFO| ok: [lf-stage] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:39:10,646 p=114203 u=boborg n=ansible INFO| TASK [ssh_keys : ensure .ssh directory exists] *************************************************************************************************************
+2026-03-24 01:39:10,841 p=114203 u=boborg n=ansible INFO| ok: [lf-stage] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:39:10,845 p=114203 u=boborg n=ansible INFO| TASK [ssh_keys : add ssh key] ******************************************************************************************************************************
+2026-03-24 01:39:11,114 p=114203 u=boborg n=ansible INFO| ok: [lf-stage] => (item={'name': 'user', 'ssh_key': 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIErK/LPcV0vULwgZgFpJMc49gO6LN3RQXQtRGHYk3YcM boborg144@gmail.com'})
+2026-03-24 01:39:11,120 p=114203 u=boborg n=ansible INFO| TASK [sudoers : add users to sudoers without password] *****************************************************************************************************
+2026-03-24 01:39:11,378 p=114203 u=boborg n=ansible INFO| ok: [lf-stage] => (item=user)
+2026-03-24 01:39:11,383 p=114203 u=boborg n=ansible INFO| TASK [disable_root_ssh : disable root ssh login] ***********************************************************************************************************
+2026-03-24 01:39:11,569 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:11,572 p=114203 u=boborg n=ansible INFO| TASK [disable_root_ssh : disable password authentication in cloud-init config] *****************************************************************************
+2026-03-24 01:39:11,758 p=114203 u=boborg n=ansible INFO| ok: [lf-stage]
+2026-03-24 01:39:11,761 p=114203 u=boborg n=ansible INFO| PLAY RECAP *************************************************************************************************************************************************
+2026-03-24 01:39:11,762 p=114203 u=boborg n=ansible INFO| lf-stage                   : ok=14   changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
